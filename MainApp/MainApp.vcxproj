@@ -59,6 +59,7 @@
   </ImportGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QtInstall>QT4.8.7</QtInstall>
+    <QtRunLUpdateOnBuild>false</QtRunLUpdateOnBuild>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
   </PropertyGroup>
