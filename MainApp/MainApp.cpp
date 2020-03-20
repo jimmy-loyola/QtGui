@@ -39,6 +39,10 @@ MainApp::MainApp(QWidget *parent) :
   );
 
   // You can connect a signal to another signal. The second signal will be emitted when the first one is triggered
+
+  // Set TextEdit demo text.
+  QString text = "Hi, I am a dummy text. Try to edit me!";
+  setText(text);
 }
 
 // The ui pointer must be cleaned in the destructor
@@ -55,7 +59,7 @@ void MainApp::onTestBtnClick()
   // Qt provides an efficient way of displaying the debug
   // information with the QDebug class.
   qDebug() << "Clicked on TestBtn";
-  QMessageBox::information(this, "Test Button", "Test Button click");
+  QMessageBox::information(this, "Test Button", getText());
 }
 
 void MainApp::setText(const QString& text)
