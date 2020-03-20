@@ -18,7 +18,12 @@
     <ClCompile Include="MainApp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="MainApp.ui" />
+    <QtUic Include="MainApp.ui">
+      <SubType>Designer</SubType>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A4D0EC55-E10E-4798-B1AD-8E1376A07992}</ProjectGuid>

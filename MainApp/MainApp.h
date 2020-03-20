@@ -10,7 +10,9 @@ class MainApp : public QWidget
 public:
   MainApp(QWidget *parent = nullptr);
   ~MainApp();
-
 private:
   Ui::MainApp ui;
+
+private slots:
+  void onTestBtnClick();
 };
