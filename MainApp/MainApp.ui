@@ -13,27 +13,17 @@
   <property name="windowTitle">
    <string>MainApp</string>
   </property>
-  <widget class="QPushButton" name="testBtn">
+  <widget class="QPushButton" name="btn">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>120</y>
-     <width>101</width>
-     <height>51</height>
+     <x>10</x>
+     <y>10</y>
+     <width>75</width>
+     <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Send</string>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="textEdit">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>120</y>
-     <width>201</width>
-     <height>51</height>
-    </rect>
+    <string>QInputDialog</string>
    </property>
   </widget>
  </widget>

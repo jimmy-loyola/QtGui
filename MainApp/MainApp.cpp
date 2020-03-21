@@ -1,6 +1,7 @@
 // Header file inclusion
 #include "MainApp.h"
 #include <QDebug.h>
+#include <QInputDialog.h>
 #include <QMessageBox.h>
 
 // Inclusion required because we need to instantiate
@@ -32,17 +33,13 @@ MainApp::MainApp(QWidget *parent) :
   // Signal and slots never return values
 
   bool result = connect(
-    ui->testBtn,           // Object that will send the signal
+    ui->btn,               // Object that will send the signal
     SIGNAL(clicked()),     // The member signal function. We want do something when the clicked signal is triggered
     this,                  // Object that will receive and handle the signal
-    SLOT(onTestBtnClick()) // Pointer to one of the receiver's member slot function
+    SLOT(onBtnClick()) // Pointer to one of the receiver's member slot function
   );
 
   // You can connect a signal to another signal. The second signal will be emitted when the first one is triggered
-
-  // Set TextEdit demo text.
-  QString text = "Hi, I am a dummy text. Try to edit me!";
-  setText(text);
 }
 
 // The ui pointer must be cleaned in the destructor
@@ -54,20 +51,28 @@ MainApp::~MainApp()
   delete ui;
 }
 
-void MainApp::onTestBtnClick()
+void MainApp::onBtnClick()
 {
   // Qt provides an efficient way of displaying the debug
   // information with the QDebug class.
-  qDebug() << "Clicked on TestBtn";
-  QMessageBox::information(this, "Test Button", getText());
-}
+  qDebug() << "Clicked on btn button";
+  bool ok;
 
-void MainApp::setText(const QString& text)
-{
-  ui->textEdit->setText(text);
-}
+  QString value = QInputDialog::getText(
+    this,                    // Parent QWidget to which QInputDialog is attached
+    tr("Dialog title"),      // Dialog title
+    tr("Input Label"),       // Input label
+    QLineEdit::Normal,
+    tr("Input placeholder"), // Input placeholder
+    &ok                      // True if OK is pressed false for cancel
+  );
 
-QString MainApp::getText() const
-{
-  return ui->textEdit->toPlainText();
+  QString msg;
+
+  if (ok)
+    msg = value.isEmpty() ? "Value empty" : value;
+  else
+    msg = "Cancel clicked";
+
+  QMessageBox::information(this, "Inserted value", msg);
 }

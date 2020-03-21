@@ -29,12 +29,6 @@ public:
   // their destructor.
   ~MainApp();
 
-  // Set text to the textEdit
-  void setText(const QString& name);
-
-  // Get text from the textEdit
-  QString getText() const;
-
 private:
 
   // Ui::MainApp is a C++ transcription of the MainApp.ui design file
@@ -46,5 +40,5 @@ private:
 // Qt uses a specific slots keywork to identify slots. Since a slot is a function, you can
 // always adjust the visibility (public, protected or private) depending on you needs.
 private slots:
-  void onTestBtnClick();
+  void onBtnClick();
 };
